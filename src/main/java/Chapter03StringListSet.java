@@ -1,21 +1,21 @@
 import redis.clients.jedis.Jedis;
 
-import java.util.Set;
-
 /**
  * Redis各种数据类型的各项操作的联系
  *
  * @author WangYu
  */
-public class Chapter03 {
+public class Chapter03StringListSet {
     public static void main(String[] args) {
         Jedis conn = new Jedis("localhost", 6379);
 //        conn.append("string-key", "hello ");
 //        System.out.println(1 + conn.get("string-key"));
 //        conn.append("string-key", "world!");
 //        System.out.println(2 + conn.get("string-key"));
+//        这边跟Java中String类型的substr方法一样，注意是左闭右开区间
 //        String substr = conn.substr("string-key", 3, 7);
 //        System.out.println(3 + substr);
+//        把string-key的第0个元素改成H
 //        conn.setrange("string-key", 0, "H");
 //        System.out.println(4 + conn.get("string-key"));
 //        conn.setrange("string-key", 11, ",how are you");
@@ -40,18 +40,19 @@ public class Chapter03 {
 //        conn.rpush("list2", "d", "e", "f");
 //        从list1的最右边弹出一个元素，装到list2的最左边，1是阻塞的等待最长时间
 //        conn.brpoplpush("list1", "list2", 1);
+//        从左边(left)依次检查列表，弹出遇到的第一个不为空的元素，1是阻塞最长等待时间
 //        conn.blpop("list1", "list2", String.valueOf(1));
 //        System.out.println(conn.lrange("list1", 0, -1));
 //        System.out.println(conn.lrange("list2", 0, -1));
 //        conn.del("list1", "list2");
 //        以上为列表数据结构指令的练习
-        conn.sadd("set1", "a", "b", "c");
+//        conn.sadd("set1", "a", "b", "c");
 //        移除，如果元素已经被移除，则返回false
 //        conn.srem("set1", "a");
 //        返回集合所包含的元素数量
 //        Long set1 = conn.scard("set1");
 //        从set1中将元素b 剪切 到set2中，如果剪切成功，返回1，否则返回2
-        Long smove = conn.smove("set1", "set2", "b");
+//        Long smove = conn.smove("set1", "set2", "b");
 //        返回那些存在于第一个集合，但不存在于其他集合中的元素，即数学中的差集运算
 //        Set<String> sdiff = conn.sdiff("set1", "set2");
 //        将后面的集合的差集的结果存到前面的集合中
@@ -62,14 +63,14 @@ public class Chapter03 {
 //        conn.sinterstore("set4", "set1", "set3");
 //        返回多个集合的并集
 //        Set<String> sunion = conn.sunion("set1", "set2");
-//        返回多个集合的并集并且存入第一个集合之中
-        conn.sunionstore("set5", "set1", "set2");
+//        返回多个集合的并集并且存入set5集合之中
+//        conn.sunionstore("set5", "set1", "set2");
 //        smembers方法是返回集合key中的所有元素
-        System.out.println(conn.smembers("set1"));
-        System.out.println(conn.smembers("set2"));
-        System.out.println(conn.smembers("set3"));
-        System.out.println(conn.smembers("set4"));
-        System.out.println(conn.smembers("set5"));
+//        System.out.println(conn.smembers("set1"));
+//        System.out.println(conn.smembers("set2"));
+//        System.out.println(conn.smembers("set3"));
+//        System.out.println(conn.smembers("set4"));
+//        System.out.println(conn.smembers("set5"));
 //        以上为集合的操作练习和解释，可以看到集合的操作基本上都有一个前缀s
     }
 }
