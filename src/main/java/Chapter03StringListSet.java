@@ -1,7 +1,7 @@
 import redis.clients.jedis.Jedis;
 
 /**
- * Redis各种数据类型的各项操作的联系
+ * Redis字符串(String)、列表(List)、集合(Set)的操作练习
  *
  * @author WangYu
  */
