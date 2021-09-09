@@ -1,3 +1,5 @@
+package Chapter03;
+
 import redis.clients.jedis.Jedis;
 
 /**
