@@ -1,9 +1,6 @@
 import redis.clients.jedis.Jedis;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Redis的散列(Hash)、有序集合(ZSET)的操作练习
@@ -34,6 +31,24 @@ public class Chapter03HashZSet {
         以上为散列的操作练习
         以下为有序集合的操作练习
          */
-
+        conn.zadd("zset1", 1.0, "a");
+        conn.zadd("zset1", 2.0, "b");
+        conn.zadd("zset1", 3.0, "c");
+        conn.zadd("zset2", 4.0, "d");
+        conn.zadd("zset2", 5.0, "e");
+        conn.zadd("zset2", 6.0, "f");
+//        Set<String> zset1 = conn.zrange("zset1", 0, -1);
+//        Long zrem = conn.zrem("zset1", "a");
+//        conn.zincrby("zset1", 1.0, "a");
+//        System.out.println(conn.zscore("zset1", "a"));
+//        以上的命令都是很好理解的，唯一需要注意的地方就是zadd，元素的分数在元素前面
+//        Long zrevrank = conn.zrevrank("zset1", "a");
+//        注意上面这个命令是返回zset1中元素a的排名，返回值是个long，并且是按从大到小排序
+//        Set<String> zset1 = conn.zrevrange("zset1", 0, -1);
+//        跟上面的命令差不多，不过返回的是个有序集合，也是从大到小
+//        conn.zinterstore("zset3", "zset1", "zset2");
+//        交集，并且赋给zset3
+//        conn.zunionstore("zset4", "zset1", "zset2");
+//        并集，并且赋给zset4
     }
 }
