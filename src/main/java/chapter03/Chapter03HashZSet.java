@@ -1,8 +1,6 @@
-package Chapter03;
+package chapter03;
 
 import redis.clients.jedis.Jedis;
-
-import java.util.*;
 
 /**
  * Redis的散列(Hash)、有序集合(ZSET)的操作练习

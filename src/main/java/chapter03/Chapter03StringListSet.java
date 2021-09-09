@@ -1,4 +1,4 @@
-package Chapter03;
+package chapter03;
 
 import redis.clients.jedis.Jedis;
 
